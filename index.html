@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy 2nd Anniversary 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ffd6e0;--rose:#ff7aa2;--berry:#7a1f4b;--butter:#ffe9a8;--mint:#cdefd8;--ink:#3b1030;--paper:#fffafc}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'Gaegu','Comic Sans MS',cursive;font-size:1.3rem;color:var(--ink);background:var(--pink);min-height:100vh;overflow-x:hidden;line-height:1.5}
+h1,h2,h3,.btn{font-family:'Chewy','Comic Sans MS',cursive;font-weight:400;color:var(--berry)}
+h1{font-size:clamp(2.6rem,9vw,5rem);line-height:1.05}
+h2{font-size:clamp(1.9rem,6vw,3rem);margin-bottom:1rem}
+section{max-width:860px;margin:0 auto;padding:4rem 1.2rem;text-align:center}
+.hidden{display:none!important}
+#bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.fl{position:absolute;bottom:-40px;animation:up linear forwards;opacity:.7}
+@keyframes up{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+main,#gate{position:relative;z-index:1}
+/* envelope */
+#gate{min-height:100vh;display:grid;place-items:center;text-align:center;padding:1rem}
+.env{position:relative;width:min(300px,80vw);height:200px;margin:2rem auto 1rem;cursor:pointer;background:var(--rose);border-radius:10px;box-shadow:0 10px 0 var(--berry);transition:transform .3s}
+.env:hover,.env:focus-visible{transform:rotate(-3deg) scale(1.04);outline:none}
+.env::before{content:"";position:absolute;inset:0;border-radius:10px;background:linear-gradient(to top right,transparent 49%,#ff5c8d 50%) left/50% 100% no-repeat,linear-gradient(to top left,transparent 49%,#ff5c8d 50%) right/50% 100% no-repeat}
+.flap{position:absolute;left:0;right:0;top:0;height:60%;background:#ff95b4;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .6s}
+.seal{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);font-size:2.6rem;z-index:2;animation:beat 1.2s infinite}
+.env.open .flap{transform:rotateX(180deg)}
+.env.open .seal{display:none}
+@keyframes beat{50%{transform:translate(-50%,-50%) scale(1.25)}}
+/* letter */
+#hero{padding-top:3rem}
+.paper{background:var(--paper);border-radius:18px;padding:1.6rem;margin:1.5rem auto;max-width:560px;box-shadow:6px 6px 0 var(--berry);transform:rotate(-1deg);text-align:left}
+.paper p{margin-bottom:.8rem}
+.counter{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.counter div{background:var(--butter);border-radius:16px;min-width:76px;padding:.5rem .6rem;box-shadow:3px 3px 0 var(--berry)}
+.counter b{display:block;font-family:'Chewy',cursive;font-size:2rem;color:var(--berry);font-weight:400}
+.hint{font-size:1.05rem;opacity:.75}
+/* story */
+.story{display:grid;gap:1.2rem;text-align:left}
+.mem{display:flex;gap:1rem;align-items:center;background:var(--paper);border-radius:18px;padding:.9rem;box-shadow:4px 4px 0 var(--berry)}
+.mem:nth-child(even){flex-direction:row-reverse;text-align:right}
+.ph{flex:0 0 96px;height:96px;border-radius:14px;background:var(--mint);display:grid;place-items:center;font-size:2.4rem;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.mem h3{font-size:1.4rem}
+/* reasons */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
+.card{perspective:700px;height:130px;cursor:pointer;border:0;background:none;font:inherit;color:inherit}
+.card i{position:absolute;inset:0;display:grid;place-items:center;padding:.6rem;border-radius:16px;backface-visibility:hidden;transition:transform .5s;font-style:normal;box-shadow:3px 3px 0 var(--berry)}
+.card{position:relative}
+.card .f{background:var(--rose);font-size:2.4rem}
+.card .b{background:var(--paper);transform:rotateY(180deg);font-size:1.1rem;line-height:1.25}
+.card.on .f{transform:rotateY(-180deg)}
+.card.on .b{transform:rotateY(0)}
+/* question */
+.q{position:relative;height:110px;margin-top:1.5rem}
+.btn{font-size:1.5rem;border:0;border-radius:999px;padding:.6rem 1.6rem;cursor:pointer;box-shadow:0 5px 0 var(--berry);transition:transform .15s}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--berry)}
+#yes{background:var(--rose);color:#fff}
+#no{background:var(--mint);position:absolute;left:58%;top:0}
+#yes{position:absolute;left:22%;top:0}
+#final{background:var(--paper);border-radius:22px;padding:1.6rem;box-shadow:6px 6px 0 var(--berry);margin-top:1rem}
+footer{padding:2rem;text-align:center;opacity:.7;position:relative;z-index:1}
+.pop{position:fixed;pointer-events:none;z-index:9;font-size:1.8rem;animation:pop 1s ease-out forwards}
+@keyframes pop{to{transform:translate(var(--x),var(--y)) scale(1.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:3px dashed var(--berry);outline-offset:3px}
+</style>
+</head>
+<body>
+<div id="bg" aria-hidden="true"></div>
+
+<div id="gate">
+  <div>
+    <h1>psst… <span id="g-name">love</span> 💌</h1>
+    <p>I made something for you. Tap the envelope.</p>
+    <div class="env" id="env" role="button" tabindex="0" aria-label="Open the envelope"><div class="flap"></div><div class="seal">💗</div></div>
+  </div>
+</div>
+
+<main id="main" class="hidden">
+  <section id="hero">
+    <h1>Happy 2nd Anniversary, My Dear <span id="h-name"></span> 💗</h1>
+    <div class="paper" id="letter"></div>
+    <p>Together for 2 years! 🎉</p>
+    <div class="counter" id="counter" aria-live="off"></div>
+    <p class="hint" style="margin-top:1rem">tap anywhere for hearts ✨</p>
+  </section>
+
+  <section>
+    <h2>Our little story 📖</h2>
+    <div class="story" id="story"></div>
+  </section>
+
+  <section>
+    <h2>Why I love you 🍓</h2>
+    <p class="hint" style="margin-bottom:1rem">tap each heart to flip it</p>
+    <div class="grid" id="reasons"></div>
+  </section>
+
+  <section>
+    <h2 id="q-title"></h2>
+    <div class="q" id="q">
+      <button class="btn" id="yes">Yes! 💖</button>
+      <button class="btn" id="no">No 🙈</button>
+    </div>
+    <div id="final" class="hidden"></div>
+  </section>
+  <footer id="foot"></footer>
+</main>
+
+<script>
+/* ✏️ EDIT THIS PART — make it yours */
+const C = {
+  her: "Rasagulla",                 // her name or nickname
+  him: "Kavin",                   // your name
+  start: "2024-11-19T00:00:00",   // the day you got together
+  letter: [
+    "Two years ago I had no idea how much one person could change my everyday life.",
+    "You make each and every day fun, hard days lighter, and ordinary moments feel special.",
+    "Thank you for being patient, silly, and so wonderfully you. I'd pick you again every single time."
+  ],
+  story: [ // photo is optional: put the image in the photos/ folder, e.g. photos/1.jpg
+    {e:"👀", t:"Our First photo",      d:"We took in our Library.",           photo:"photos/1.jpeg"},
+    {e:"👀", t:"Our First photo in Relationship",      d:"We shared Gifts this day.",           photo:"photos/2.jpeg"},
+    {e:"🍕", t:"Our first date",   d:"Amazing day in the park.",         photo:"photos/3.jpeg"},
+    {e:"📱", t:"Our First Year",  d:"Our first year together.",  photo:"photos/4.jpeg"},
+    {e:"🍕", t:"Our favourite picture",   d:"Our favourite memory.",         photo:"photos/5.jpeg"},
+    {e:"🍕", t:"Our favourite date",   d:"India Brew house.",         photo:"photos/6.jpeg"},
+    {e:"🍕", t:"Our Most Expensive Photo",   d:"LMAO.",         photo:"photos/7.jpeg"},
+    {e:"🌅", t:"Year two",             d:"Currently us hehe.",         photo:"photos/8.jpeg"}
+  ],
+  reasons: [
+    ["🌸","Your smile fixes my whole day"],
+    ["😂","You care me soo muchh"],
+    ["🤗","Your make me feel loved"],
+    ["🍫","You bring in the real happiness in me"],
+    ["🌙","You mean the world to me"],
+    ["⭐","You believe in me"]
+  ],
+  question: "Will you be mine forever? 🥺",
+  final: "YAYYY! 🎉 Here's to year three, more adventures, more memories, and many more silly moments together. I love you so much! 💗",
+  signoff: "Made with love by"
+};
+
+const $=s=>document.querySelector(s);
+const hearts=["💗","💖","💕","🌸","✨","🍓"];
+
+/* floating background hearts */
+setInterval(()=>{
+  const h=document.createElement("span");h.className="fl";h.textContent=hearts[Math.random()*hearts.length|0];
+  h.style.left=Math.random()*100+"vw";h.style.fontSize=14+Math.random()*26+"px";
+  const d=7+Math.random()*7;h.style.animationDuration=d+"s";$("#bg").appendChild(h);setTimeout(()=>h.remove(),d*1000);
+},700);
+
+/* burst of hearts */
+function burst(x,y,n=8){
+  for(let i=0;i<n;i++){
+    const p=document.createElement("span");p.className="pop";p.textContent=hearts[Math.random()*hearts.length|0];
+    p.style.left=x+"px";p.style.top=y+"px";
+    p.style.setProperty("--x",(Math.random()*240-120)+"px");p.style.setProperty("--y",(Math.random()*-220-20)+"px");
+    document.body.appendChild(p);setTimeout(()=>p.remove(),1000);
+  }
+}
+document.addEventListener("click",e=>burst(e.clientX,e.clientY,5));
+
+/* fill text */
+$("#g-name").textContent=C.her;$("#h-name").textContent=C.her;
+$("#letter").innerHTML=C.letter.map(p=>`<p>${p}</p>`).join("")+`<p>Forever yours,<br><b>${C.him}</b> 💌</p>`;
+$("#q-title").textContent=C.question;$("#final").textContent=C.final;
+$("#foot").textContent=`${C.signoff} ${C.him} 💗`;
+
+/* open envelope */
+function openEnv(){
+  $("#env").classList.add("open");
+  const r=$("#env").getBoundingClientRect();burst(r.left+r.width/2,r.top+60,18);
+  setTimeout(()=>{$("#gate").classList.add("hidden");$("#main").classList.remove("hidden");scrollTo(0,0)},900);
+}
+$("#env").addEventListener("click",openEnv);
+$("#env").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openEnv()}});
+
+/* counter */
+function tick(){
+  let s=Math.max(0,Math.floor((Date.now()-new Date(C.start))/1000));
+  const d=Math.floor(s/86400);s%=86400;const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);s%=60;
+  $("#counter").innerHTML=[[d,"days"],[h,"hours"],[m,"mins"],[s,"secs"]].map(([n,l])=>`<div><b>${n}</b>${l}</div>`).join("");
+}
+tick();setInterval(tick,1000);
+
+/* story */
+$("#story").innerHTML=C.story.map(m=>`<div class="mem"><div class="ph">${m.e}<img src="${m.photo||""}" alt="" onerror="this.remove()" style="position:absolute;opacity:0" onload="this.style.opacity=1;this.style.position='static';this.parentNode.firstChild.textContent=''"></div><div><h3>${m.t}</h3><p>${m.d}</p></div></div>`).join("");
+
+/* reasons */
+$("#reasons").innerHTML=C.reasons.map(r=>`<button class="card" aria-label="Flip card"><i class="f">${r[0]}</i><i class="b">${r[1]}</i></button>`).join("");
+document.querySelectorAll(".card").forEach(c=>c.addEventListener("click",()=>c.classList.toggle("on")));
+
+/* the question: "No" runs away */
+const no=$("#no"),q=$("#q");
+function run(){
+  no.style.left=Math.random()*(q.clientWidth-no.offsetWidth)+"px";
+  no.style.top=Math.random()*(q.clientHeight-no.offsetHeight)+"px";
+}
+["mouseenter","touchstart","click"].forEach(ev=>no.addEventListener(ev,e=>{e.preventDefault();e.stopPropagation();run()},{passive:false}));
+$("#yes").addEventListener("click",e=>{
+  q.classList.add("hidden");$("#final").classList.remove("hidden");
+  const r=$("#final").getBoundingClientRect();
+  for(let i=0;i<6;i++)setTimeout(()=>burst(innerWidth*Math.random(),innerHeight*0.6,14),i*250);
+});
+</script>
+</body>
+</html>
